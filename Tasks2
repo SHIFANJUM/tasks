@@ -1,0 +1,104 @@
+if _name_ == '_main_':
+    x = int(input())
+    y = int(input())
+    z = int(input())
+    n = int(input())
+    array=[[i,j,k] for i in range(0,x+1) for j in range(0,y+1) for k in range(0,z+1)if i+j+k!=n]
+    print(array)
+
+
+if _name_ == '_main_':
+    n = int(input())
+    arr = map(int, input().split())
+    s=list(set(arr))
+    s.sort()
+    print(s[-2])
+
+
+if _name_ == '_main_':
+    names=[]
+    scores=[]
+    for _ in range(int(input())):
+        name = input()
+        score = float(input())
+        names.append(name)
+        scores.append(score)
+    q=sorted(list(set(scores)))
+    second_min=q[1]
+    students=[]
+    for i in range(len(names)):
+        if scores[i]==second_min:
+            students.append(names[i])
+    students.sort()
+    for i in students:
+        print(i)
+
+
+if _name_ == '_main_':
+    n = int(input())
+    student_marks = {}
+    for _ in range(n):
+        name, *line = input().split()
+        scores = list(map(float, line))
+        student_marks[name] = scores
+    query_name = input()
+    marks=student_marks[query_name]
+    avg_marks=sum(marks)/3
+    print("{:.2f}".format(avg_marks))
+
+
+def split_and_join(line):
+    # Split the string on space delimiter
+    words = line.split(" ")
+    # Join the words using hyphen delimiter
+    result = "-".join(words)
+    return result
+
+# Test the function
+line = input()
+output = split_and_join(line)
+print(output)
+
+
+def print_rangoli(size):
+    import string
+    
+    # Generating the alphabet sequence
+    alphabet = string.ascii_lowercase
+    
+    # Creating the rangoli rows
+    rows = []
+    for i in range(size):
+        row = '-'.join(alphabet[size-1:i:-1] + alphabet[i:size])
+        rows.append((row).center(4*size-3, '-'))
+    
+    # Printing the rangoli
+    print('\n'.join(rows[::-1] + rows[1:]))
+
+if __name__ == '__main__':
+    n = int(input())
+    print_rangoli(n)
+
+
+def minion_game(string):
+    vowels = 'AEIOU'
+    stuart_score = 0
+    kevin_score = 0
+    length = len(string)
+
+    for i in range(length):
+        if string[i] in vowels:
+            kevin_score += length - i
+        else:
+            stuart_score += length - i
+
+    if kevin_score > stuart_score:
+        print("Kevin", kevin_score)
+    elif kevin_score < stuart_score:
+        print("Stuart", stuart_score)
+    else:
+        print("Draw")
+
+if __name__ == '__main__':
+    s = input()
+    minion_game(s)
