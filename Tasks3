@@ -1,0 +1,51 @@
+if __name__ == '__main__':
+    def execute_commands(commands):
+        lst = []
+        for command in commands:
+            parts = command.split()
+            cmd = parts[0]
+            if cmd == "insert":
+                lst.insert(int(parts[1]), int(parts[2]))
+            elif cmd == "print":
+                print(lst)
+            elif cmd == "remove":
+                lst.remove(int(parts[1]))
+            elif cmd == "append":
+                lst.append(int(parts[1]))
+            elif cmd == "sort":
+                lst.sort()
+            elif cmd == "pop":
+                lst.pop()
+            elif cmd == "reverse":
+                lst.reverse()
+    N = int(input())
+    commands = [input().strip() for _ in range(N)]
+    execute_commands(commands)
+
+
+if __name__ == '__main__':
+    n = int(input())
+    elements = tuple(map(int, input().split()))
+    print(hash(elements))
+
+
+def average(arr):
+    distinct_heights = set(arr)
+    avg_height = sum(distinct_heights) / len(distinct_heights)
+    return round(avg_height, 3)
+if __name__ == '__main__':
+    n = int(input())
+    arr = list(map(int, input().split()))
+    result = average(arr)
+    print(result)
+
+
+if __name__ == '__main__':
+    n = int(input())
+    country_stamps = set()
+    for _ in range(n):
+        country = input().strip()
+        country_stamps.add(country)
+     print(len(country_stamps))
+
+
