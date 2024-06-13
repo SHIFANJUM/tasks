@@ -1,0 +1,101 @@
+from collections import defaultdict
+def main():
+    n, m = map(int, input().split())
+    A_positions = defaultdict(list)
+    for i in range(1, n + 1):
+        word = input().strip()
+        A_positions[word].append(i)
+    B_words = [input().strip() for _ in range(m)]
+    for word in B_words:
+        if word in A_positions:
+            print(' '.join(map(str, A_positions[word])))
+        else:
+            print(-1)
+if __name__ == "__main__":
+    main()
+
+
+from collections import deque
+def perform_deque_operations(n, operations):
+    d = deque()
+    result = []
+    for operation in operations:
+        op = operation[0]
+        if op == "append":
+            d.append(operation[1])
+        elif op == "appendleft":
+            d.appendleft(operation[1])
+        elif op == "pop":
+            d.pop()
+        elif op == "popleft":
+            d.popleft()
+    return ' '.join(d)
+if __name__ == "__main__":
+    n = int(input().strip())
+    operations = [input().strip().split() for _ in range(n)]
+    result = perform_deque_operations(n, operations)
+    print(result)
+
+
+from collections import OrderedDict
+def supermarket_billing(n, items):
+    ordered_dict = OrderedDict()
+    for item in items:
+        parts = item.split()
+        item_name = ' '.join(parts[:-1])  # Handle item names with spaces
+        price = int(parts[-1])
+        if item_name in ordered_dict:
+            ordered_dict[item_name] += price
+        else:
+            ordered_dict[item_name] = price
+    for item_name, net_price in ordered_dict.items():
+        print(item_name, net_price)
+def main():
+    n = int(input().strip())
+    items = []
+    for _ in range(n):
+        items.append(input().strip())
+    supermarket_billing(n, items)
+if __name__ == "__main__":
+    main()
+
+
+import math
+import os
+import random
+import re
+import sys
+from collections import Counter
+def find_top_three_chars(s):
+    freq = Counter(s)
+    sorted_chars = sorted(freq.items(), key=lambda x: (-x[1], x[0]))
+    for i in range(3):
+        if i < len(sorted_chars):
+            print(sorted_chars[i][0], sorted_chars[i][1])
+if __name__ == "__main__":
+    s = input().strip()
+    find_top_three_chars(s)
+
+
+def count_word_occurrences(n, words):
+    word_count = {}
+    word_order = []
+    for word in words:
+        if word in word_count:
+            word_count[word] += 1
+        else:
+            word_count[word] = 1
+            word_order.append(word)
+    print(len(word_order))
+    for word in word_order:
+        print(word_count[word], end=' ')
+if __name__ == "__main__":
+    n = int(input().strip())
+    words = []
+    for _ in range(n):
+        words.append(input().strip())
+    count_word_occurrences(n, words)
+
+
+
+
