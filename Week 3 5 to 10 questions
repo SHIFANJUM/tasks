@@ -1,0 +1,80 @@
+if __name__ == '__main__':
+    n = int(input())
+    english_subscribers = set(map(int, input().split()))
+    m = int(input())
+    french_subscribers = set(map(int, input().split()))
+    both_subscribers = english_subscribers.intersection(french_subscribers)
+    print(len(both_subscribers))
+
+
+if __name__ == '__main__':
+    n = int(input())
+    english_subscribers = set(map(int, input().split()))
+    m = int(input())
+    french_subscribers = set(map(int, input().split()))
+    symmetric_difference_set = english_subscribers.symmetric_difference(french_subscribers)
+    print(len(symmetric_difference_set))
+
+
+if __name__ == '__main__':
+    t = int(input())
+    
+    for _ in range(t):
+        n = int(input())
+        set_a = set(map(int, input().split()))
+        m = int(input())
+        set_b = set(map(int, input().split()))
+        print(set_a.issubset(set_b))
+
+
+if __name__ == '__main__':
+    set_a = set(map(int, input().split()))
+    n = int(input())
+    is_strict_superset = True
+    for _ in range(n):
+        other_set = set(map(int, input().split()))
+        if not (set_a > other_set):
+            is_strict_superset = False
+            break
+    print(is_strict_superset)
+
+
+if __name__ == '__main__':
+    n, m = map(int, input().split())
+    array = list(map(int, input().split()))
+    A = set(map(int, input().split()))
+    B = set(map(int, input().split()))
+    happiness = 0
+    for elem in array:
+        if elem in A:
+            happiness += 1
+        elif elem in B:
+            happiness -= 1
+    print(happiness)
+
+
+if __name__ == '__main__':
+    import random
+    random.seed(0)  
+    n = int(input())
+    s = set(map(int, input().split()))
+    m = int(input())
+    for _ in range(m):
+        command = input().split()
+        if command[0] == "pop":
+            if s:  
+                s.pop()
+        elif command[0] == "remove":
+            value = int(command[1])
+            try:
+                s.remove(value)
+            except KeyError:
+                pass  
+        elif command[0] == "discard":
+            value = int(command[1])
+            s.discard(value)
+    print(sum(s))
+
+
+
+
